@@ -1,1 +1,0 @@
-/test-prject/test_project/settings.py
