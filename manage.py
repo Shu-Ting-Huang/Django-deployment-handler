@@ -19,7 +19,4 @@ def main():
 
 
 if __name__ == '__main__':
-    import urllib.request
-    external_ip = urllib.request.urlopen('https://api.ipify.org').read().decode('utf8')
-    os.environ.setdefault('EXTERNAL_IP', external_ip)
     main()
