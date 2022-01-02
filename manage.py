@@ -19,4 +19,7 @@ def main():
 
 
 if __name__ == '__main__':
+    with open("settings_path.txt") as f:
+        os.environ.setdefault('SETTINGS_PATH', f.read())
+        print(f.read())
     main()
