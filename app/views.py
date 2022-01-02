@@ -9,7 +9,7 @@ def index(request):
         root_folder_path = os.environ['ROOT_FOLDER_PATH']
         os.chdir(root_folder_path)
         os.system('git fetch --all')
-        os.system('git reset --hard origin/master')
+        os.system('git reset --hard ' + os.environ['REMOTE_NAME'] + '/' + os.environ['MAIN_BRANCH'])
 
         # Set DEBUG = False and ALLOWED_HOSTS = ['*'] in settings.py
         settings_location = os.environ['SETTINGS_PATH']
