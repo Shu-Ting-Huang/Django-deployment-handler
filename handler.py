@@ -8,4 +8,4 @@ if os.name == 'nt': # Windows
     python_cmd = 'python'
 elif os.name == 'posix': # Linux
     python_cmd = 'python3'
-os.system(python_cmd + ' manage.py runserver --insecure' + external_ip + ':' + port)
+os.system(python_cmd + ' manage.py runserver --insecure ' + external_ip + ':' + port)
