@@ -17,6 +17,7 @@ class MyHandler(BaseHTTPRequestHandler):
         params = {k:v[0] for k,v in parse_qs(urlparse(self.path).query).items()}
 
         if path == '/update' and list(params.keys()) == ['branch']:
+            # pull the newly update branch from GitHub
             pushed_branch = params['branch']
             os.chdir(root_folder_path)
             checked_out_branch = os.popen('git branch --show-current').readlines()[0].strip('\n')
@@ -25,6 +26,14 @@ class MyHandler(BaseHTTPRequestHandler):
                 os.system('git reset --hard ' + remote_name + '/' + pushed_branch)
             else:
                 os.system('git branch --force ' + pushed_branch + ' ' + remote_name + '/' + pushed_branch)
+
+            # load and resave manage.py to force the server to reload
+            with open('manage.py', 'r') as f:
+                manage_py = f.read()
+            with open('manage.py', 'w') as f:
+                f.write(manage_py)
+
+            # send response
             self.send_response(200)
             self.send_header('Content-type', 'text/html')
             self.end_headers()
