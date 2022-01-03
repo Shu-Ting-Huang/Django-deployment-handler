@@ -18,4 +18,4 @@ def index(request):
         else:
             os.system('git branch --force ' + pushed_branch + ' ' + remote_name + '/' + pushed_branch)
 
-    return HttpResponse("Hello, world!! " + os.environ['SETTINGS_PATH'])
+    return HttpResponse("Hello, world!!")
