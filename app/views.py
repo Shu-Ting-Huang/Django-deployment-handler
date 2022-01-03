@@ -7,9 +7,15 @@ def index(request):
     if os.name == 'posix':
         # pull from GitHub
         root_folder_path = os.environ['ROOT_FOLDER_PATH']
+        remote_name = os.environ['REMOTE_NAME']
+        pushed_branch = request.GET['branch']
         os.chdir(root_folder_path)
-        os.system('git fetch --all')
-        os.system('git reset --hard ' + os.environ['REMOTE_NAME'] + '/' + os.environ['MAIN_BRANCH'])
+        checked_out_branch = os.popen('git branch --show-current').readlines().strip('\n')
+        os.system('git fetch ' + remote_name + ' ' + pushed_branch)
+        if checked_out_branch == pushed_branch:
+            os.system('git reset --hard ' + remote_name + '/' + pushed_branch)
+        else:
+            os.system('git branch --force ' + pushed_branch + ' ' + remote_name + '/' + pushed_branch)
 
         # Set DEBUG = False and ALLOWED_HOSTS = ['*'] in settings.py
         settings_location = os.environ['SETTINGS_PATH']
