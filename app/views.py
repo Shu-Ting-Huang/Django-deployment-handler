@@ -4,7 +4,8 @@ from django.shortcuts import HttpResponse
 # Create your views here.
 
 def index(request):
-    if os.name == 'posix':
+    on_server = (os.name=='posix')
+    if on_server:
         # pull from GitHub
         root_folder_path = os.environ['ROOT_FOLDER_PATH']
         remote_name = os.environ['REMOTE_NAME']
