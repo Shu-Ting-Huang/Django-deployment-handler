@@ -40,4 +40,6 @@ class MyHandler(BaseHTTPRequestHandler):
             self.wfile.write(bytes('<h1>Successfully pulled branch ' + pushed_branch + ' from GitHub' + ' </h1>','utf-8'))
 
 server = HTTPServer((external_ip, port), MyHandler)
+print('Server started on ' + external_ip + ':' + str(port))
 server.serve_forever()
+print('Server stopped')
