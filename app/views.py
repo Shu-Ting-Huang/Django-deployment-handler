@@ -17,18 +17,4 @@ def index(request):
         else:
             os.system('git branch --force ' + pushed_branch + ' ' + remote_name + '/' + pushed_branch)
 
-        # Set DEBUG = False and ALLOWED_HOSTS = ['*'] in settings.py
-        settings_location = os.environ['SETTINGS_PATH']
-        new_content = ""
-        with open(settings_location, 'r') as f:
-            for line in f:
-                if line.startswith("DEBUG"):
-                    new_content += "DEBUG = False\n"
-                elif line.startswith("ALLOWED_HOSTS"):
-                    new_content += "ALLOWED_HOSTS = ['*']\n"
-                else:
-                    new_content += line
-        with open(settings_location, 'w') as f:
-            f.write(new_content)
-
     return HttpResponse("Hello, world!! " + os.environ['SETTINGS_PATH'])
