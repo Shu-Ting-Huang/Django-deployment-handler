@@ -10,7 +10,7 @@ remote_name = "origin"
 
 class MyHandler(BaseHTTPRequestHandler):
     def do_GET(self):
-        # get path from url, expected to be /update
+        # get path from url, expected to be "/update"
         path = urlparse(self.path).path
 
         # get params from url, expected be {"branch": <branch pushed to GitHub>}
