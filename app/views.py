@@ -10,7 +10,7 @@ def index(request):
         remote_name = os.environ['REMOTE_NAME']
         pushed_branch = request.GET['branch']
         os.chdir(root_folder_path)
-        checked_out_branch = os.popen('git branch --show-current').readlines().strip('\n')
+        checked_out_branch = os.popen('git branch --show-current').readlines()[0].strip('\n')
         os.system('git fetch ' + remote_name + ' ' + pushed_branch)
         if checked_out_branch == pushed_branch:
             os.system('git reset --hard ' + remote_name + '/' + pushed_branch)
