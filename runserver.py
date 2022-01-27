@@ -14,6 +14,9 @@ try:
 except FileNotFoundError:
     print("server_info.json not found")
     exit()
+    
+# change to the parent directory
+os.chdir("..")
 
 server_ip = server_info["server_ip"]
 deployment_port = server_info["deployment_port"]
@@ -59,7 +62,6 @@ deployment_thread = threading.Thread(target = run_deployment_handler)
 deployment_thread.start()
 
 # run the web hosting server
-os.chdir("..") # change to the parent directory
 os.system("python3 manage.py runserver --insecure " + server_ip + ":80")
 
 # wait for deployment handler sub-thread to finish
