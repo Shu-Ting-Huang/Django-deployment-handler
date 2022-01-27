@@ -10,7 +10,7 @@
 
 - [x] `> git push origin master`
 
-- [x] `$ git clone (Django repo URL)`
+- [x] `$ git clone --recurse-submodules (Django repo URL)`
 
 - [x] `$ cd (Django repo name)`
 
