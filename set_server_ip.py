@@ -2,6 +2,8 @@ import os
 import json
 from string import Template
 
+default_deployment_port = 1234
+
 # Get server IP from user
 server_ip = input("Enter the server IP: ")
 
@@ -14,7 +16,7 @@ try:
         server_info = json.load(f)
         server_info["server_ip"] = server_ip
 except FileNotFoundError:
-    server_info = {"server_ip": server_ip, "deployment_port": 1234}
+    server_info = {"server_ip": server_ip, "deployment_port": default_deployment_port}
 with open("../server_info.json", "w") as f:
     f.write(json.dumps(server_info, indent = 4))
 del server_info
