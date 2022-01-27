@@ -6,7 +6,7 @@
 
 - [x] `> git add .`
 
-- [x] `> git commit -m "Add deployment handler as submodule and set it up"`
+- [x] `> git commit -m "Add deployment handler as submodule and set up server IP"`
 
 - [x] `> git push origin master`
 
