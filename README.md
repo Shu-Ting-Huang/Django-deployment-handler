@@ -1,17 +1,17 @@
 # Django Deployment Handler
 
-- [x] `> git submodule add https://github.com/Shu-Ting-Huang/Django-deployment-handler.git`
+`> git submodule add https://github.com/Shu-Ting-Huang/Django-deployment-handler.git`
 
-- [ ] `> python Django-deployment-handler/set_server_ip.py`
+`> python Django-deployment-handler/set_server_ip.py`
 
-- [x] `> git add .`
+`> git add .`
 
-- [x] `> git commit -m "Add deployment handler as submodule and set up server IP"`
+`> git commit -m "Add deployment handler as submodule and set up server IP"`
 
-- [x] `> git push origin master`
+`> git push origin master`
 
-- [x] `$ git clone --recurse-submodules (Django repo URL)`
+`$ git clone --recurse-submodules (Django repo URL)`
 
-- [x] `$ cd (Django repo name)`
+`$ cd (Django repo name)`
 
-- [ ] `$ python3 Django-deployment-handler/runserver.py`
+`$ python3 Django-deployment-handler/runserver.py`
