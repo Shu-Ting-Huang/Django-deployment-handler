@@ -1,5 +1,7 @@
 # Django Deployment Handler
 Put the following configurations in `settings.py`:
+
+(Here I assume you are using Windows on local machine and Linux on the server. If it is not the case, the settings need to be changed accordingly.)
 ```
 import os
 if os.name == 'posix':
